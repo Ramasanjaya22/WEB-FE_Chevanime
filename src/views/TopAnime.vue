@@ -1,13 +1,28 @@
 <template>
     <div>
-        <div class="px-24">
-            <h1>Top Anime</h1>
-        </div>
+        <app-list>
+
+            <top-anime-card></top-anime-card>
+            <top-anime-card></top-anime-card>
+            <top-anime-card></top-anime-card>
+            <top-anime-card></top-anime-card>
+            <top-anime-card></top-anime-card>
+            <top-anime-card></top-anime-card>
+            <top-anime-card></top-anime-card>
+            <top-anime-card></top-anime-card>
+
+        </app-list>
     </div>
 </template>
 
 <script>
+  import TopAnimeCard from "../components/TopAnimeCard.vue"
+  import List from "../components/List.vue"
   export default{
-    name: 'Top Anime'
+    name: 'Top Anime',
+    components: {
+      TopAnimeCard,
+      'app-list' : List
+    }
   }
 </script>
