@@ -33,7 +33,7 @@
             <td>{{ anime.score }}</td>
         </tr>
         <tr>
-            <td>Tahun Rilis</td>
+            <td>Tanggal Rilis Pertama</td>
             <td></td>
             <td>{{ anime.aired.from }}</td>
         </tr>

@@ -5,13 +5,14 @@
      :currentPage="currentPage"
      :hasNextPage="pagination.has_next_page"></app-pagination>
         <app-list>
-            <top-manga-card v-for="topManga in listTopManga" :key="topManga.mal_id" :manga="topManga"></top-manga-card>
+            <top-manga-card v-for="manga in topManga" :key="manga.mal_id" :manga="manga"></top-manga-card>
         </app-list>
     </div>
 </template>
 
 <script>
   import http from "../helpers/http"
+  import dateHelper  from "../helpers/date"
   import TopMangaCard from "../components/TopMangaCard.vue"
   import List from "../components/List.vue"
   import Pagination from "../components/Pagination.vue"
@@ -30,6 +31,14 @@
           "last_visible_page": 0,
           "has_next_page": false
         }
+      }
+    },
+    computed:{
+      topManga() {
+        return this.listTopManga.map((topManga) => {
+          topManga.published.from = dateHelper(topManga.published.from);
+          return topManga;
+        });
       }
     },
     created(){

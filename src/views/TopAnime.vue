@@ -5,13 +5,14 @@
      :currentPage="currentPage"
      :hasNextPage="pagination.has_next_page"></app-pagination>
         <app-list>
-            <top-anime-card v-for="topAnime in listTopAnime" :key="topAnime.mal_id" :anime="topAnime"></top-anime-card>
+            <top-anime-card v-for="anime in topAnime" :key="anime.mal_id" :anime="anime"></top-anime-card>
         </app-list>
     </div>
 </template>
 
 <script>
   import http from "../helpers/http"
+  import dateHelper from "../helpers/date"
   import TopAnimeCard from "../components/TopAnimeCard.vue"
   import List from "../components/List.vue"
   import Pagination from "../components/Pagination.vue"
@@ -30,6 +31,14 @@
           "last_visible_page": 0,
           "has_next_page": false
         }
+      }
+    },
+    computed:{
+      topAnime() {
+        return this.listTopAnime.map((topAnime) => {
+          topAnime.aired.from = dateHelper(topAnime.aired.from);
+          return topAnime;
+        });
       }
     },
     created(){

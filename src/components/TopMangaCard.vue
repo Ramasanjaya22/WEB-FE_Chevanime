@@ -28,7 +28,7 @@
             <td>{{ manga.score }}</td>
         </tr>
         <tr>
-            <td>Tahun Rilis</td>
+            <td>Tanggal Rilis</td>
             <td></td>
             <td>{{ manga.published.from }}</td>
         </tr>
