@@ -7,27 +7,35 @@ const routes = [
             {
                 path: '/',
                 name: 'TopAnime',
-                component: () => import('../views/TopAnime.vue')
+                meta: { requiresAuth: false },
+                component: () => import('../views/TopAnime.vue'),
+
             },
             {
                 path: '/top-manga',
                 name: 'TopManga',
-                component: () => import('../views/TopManga.vue')
+                meta: { requiresAuth: false },
+                component: () => import('../views/TopManga.vue'),
+
             },
             {
                 path: '/schedule',
                 name: 'Schedule',
-                component: () => import('../views/ScheduleAnime.vue')
+                meta: { requiresAuth: false },
+                component: () => import('../views/ScheduleAnime.vue'),
+
             },
             {
                 path: '/forum',
                 name: 'Forum',
-                component: () => import('../views/Forum.vue')
+                meta: { requiresAuth: true },
+                component: () => import('../views/Forum.vue'),
             },
             {
                 path: '/forum/:id',
                 name: 'ForumDetail',
-                component: () => import('../views/ForumDetail.vue')
+                meta: { requiresAuth: true },
+                component: () => import('../views/ForumDetail.vue'),
             }
         ]
     },
