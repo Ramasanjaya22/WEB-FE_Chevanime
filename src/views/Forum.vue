@@ -76,6 +76,7 @@
           class="card rounded-md p-5 shadow-xl bg-white hover:cursor-pointer"
           v-for="forum in forums"
           :key="forum.id"
+          @click="$router.push({ path : `/forum/${forum.id}`})"
         >
           <h1 class="text-xl font-semibold">{{ forum.data.title }}</h1>
           <h2 class="text-lg font-thin">Author : {{ forum.data.author }}</h2>
